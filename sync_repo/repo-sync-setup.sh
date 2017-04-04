@@ -1,10 +1,5 @@
 #!/bin/sh
 
-function getGitSource {
-    git fetch
-    git pull origin ${GIT_BRANCH}
-}
-
 git init
 git remote add origin -f ${GIT_REPO_URL}
 
@@ -18,14 +13,16 @@ git pull origin ${GIT_BRANCH}
 
 git checkout ${GIT_BRANCH}
 
-getGitSource
+git fetch
+git pull origin ${GIT_BRANCH}
 
 if [ ${GIT_REPO_SYNC_TIME} ]
 then
     i=1
     while [ ${i} ];
     do
-        getGitSource
+        git fetch
+        git pull origin ${GIT_BRANCH}
 
         sleep ${GIT_REPO_SYNC_TIME}
     done

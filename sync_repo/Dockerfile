@@ -8,6 +8,8 @@ RUN apk update \
 ADD repo-sync-setup.sh /
 RUN chmod 700 /repo-sync-setup.sh
 
+RUN mkdir /www-data
+
 WORKDIR /www-data
 
 ENTRYPOINT ["/repo-sync-setup.sh"]
