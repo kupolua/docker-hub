@@ -61,11 +61,11 @@ RUN set -ex \
   && ln -s /opt/yarn/bin/yarn /usr/local/bin/yarnpkg \
   && rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz
 
-RUN apt-get update
+RUN apt-get update \
   && apt-get install git
 
-RUN git clone https://github.com/semaprot/weather.git
-  && cd weather
+RUN git clone https://github.com/semaprot/weather.git \
+  && cd weather \
   && git checkout develop
 
 CMD [ "node", "/weather/syslog/syslog.js" ]
