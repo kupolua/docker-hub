@@ -68,4 +68,4 @@ RUN git clone https://github.com/semaprot/weather.git \
   && cd weather \
   && git checkout develop
 
-CMD [ "node", "/weather/syslog/syslog.js" ]
+CMD node /weather/syslog/syslog.js
